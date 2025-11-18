@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Times New Roman', Times, serif;
+    text-align: center;
+    margin-top: 30px;
+    background-color:ghostwhite;
+}
+
+h1{
+    text-align: center;
+    color:rgb(58, 42, 58);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #939090;
+}
+
+.sliders img {
+    width: 800px;
+    height: 400px;
+    border-radius: 5px;
+}
+
+
+.buttons button{
+    background-color:cornflowerblue;
+    color: whitesmoke;
+    margin: 8px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button:hover{
+    background-color:rgb(39, 72, 174);
+}
+
+.add-img{
+    margin-top: 20px;
+}
+
+input{
+    margin: 12px;
+    padding: 9px;
+    border-radius: 15px;
+    width: 300px;
+}
+
+
+
+
+
+
+
+
+
+![image alt](https://github.com/devikajariwala031106/Make-Slider/blob/a95d23ad98e5560399b4cea924c47ddbf569b48d/Screenshot%202025-11-18%20122100.png)
+![image alt](https://github.com/devikajariwala031106/Make-Slider/blob/6d5afaa654d75b31dab13396e1ce239f41632fc0/Screenshot%202025-11-18%20122123.png)
+![image alt](https://github.com/devikajariwala031106/Make-Slider/blob/6d5afaa654d75b31dab13396e1ce239f41632fc0/Screenshot%202025-11-18%20122144.png)
+![image alt](https://github.com/devikajariwala031106/Make-Slider/blob/6d5afaa654d75b31dab13396e1ce239f41632fc0/Screenshot%202025-11-18%20122203.png)

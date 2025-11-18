@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart Image Slider</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <h1>Smart Image Slider</h1>
+
+        <div class="sliders">
+            <img id="image-slider" alt="image-slider">
+            <p id="img-caption-text"></p>
+            <p id="counter"></p>
+        </div>
+
+        <div class="buttons">
+            <button onclick="prevSlide()">previous</button>
+            <button onclick="nextSlide()">Next</button>
+            <button onclick="autoStart()">Auto play</button>
+            <button onclick="autoStop()">Pause</button>
+        </div>
+
+        <div class="add-img">
+            <input type="text" id="imgUrl" placeholder="Enter Image URL">
+            <input type="text" id="imgCaption" placeholder="Enter Caption">
+            <div class="buttons">
+            <button onclick="addImage()">Add Image</button>
+        </div>
+        </div>
+
+        <script>
+            let slides = [
+                { img: "https://media.istockphoto.com/id/1172427455/photo/beautiful-sunset-over-the-tropical-sea.jpg?s=612x612&w=0&k=20&c=i3R3cbE94hdu6PRWT7cQBStY_wknVzl2pFCjQppzTBg=", caption: "Beautiful Sunset" },
+                { img: "https://t3.ftcdn.net/jpg/07/20/50/60/360_F_720506039_xXi5ELeaJpWUaKa1lsXufZcnjlNhCi4z.jpg", caption: "Mountain View" },
+                { img: "https://wallpapers.com/images/featured/beautiful-nature-pictures-qjcss5r32ziry34t.jpg", caption: "Beautiful Nature" }
+            ];
+
+            let currentIndex = 0;
+            let autoTimer;
+
+            function showSlide(index) {
+                let slide = slides[index];
+                document.getElementById("image-slider").src = slide.img;
+                document.getElementById("img-caption-text").textContent = slide.caption;
+                document.getElementById("counter").textContent =
+                    "Slide " + (index + 1) + " of " + slides.length;
+            }
+
+            function nextSlide() {
+                if (currentIndex < slides.length - 1) {
+                    currentIndex++;
+                } else {
+                    alert("This is the last slide.");
+                }
+                showSlide(currentIndex);
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    alert("This is the first slide.");
+                }
+                showSlide(currentIndex);
+            }
+
+            function addImage() {
+                let url = document.getElementById("imgUrl").value;
+                let cap = document.getElementById("imgCaption").value;
+
+                if (url !== "" && cap !== "") {
+                    slides.push({ img: url, caption: cap });
+                    currentIndex = slides.length - 1;
+                    showSlide(currentIndex);
+
+                    document.getElementById("imgUrl").value = "";
+                    document.getElementById("imgCaption").value = "";
+                } else {
+                    alert("Please fill both fields.");
+                }
+            }
+
+            function autoStart() {
+                autoStop();
+                autoTimer = setInterval(function () {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                }, 3000);
+            }
+
+            function autoStop() {
+                clearInterval(autoTimer);
+            }
+
+            showSlide(currentIndex);
+        </script>
+
+    </body>
+</html>
